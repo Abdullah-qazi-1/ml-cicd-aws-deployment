@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Performance Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #6c8fff;
+      --accent-dim: rgba(108, 143, 255, 0.12);
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --white: #ffffff;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(108,143,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108,143,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    /* Glow orb */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(108,143,255,0.10) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(108,143,255,0.2);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 2.8rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="tag">Machine Learning &nbsp;&middot;&nbsp; Regression</div>
+
+    <h1>Predict Student <span>Math Performance</span></h1>
+
+    <p>Enter student demographics and academic scores to get an instant math score prediction powered by an automated model selection pipeline.</p>
+
+    <a href="/predictdata" class="btn">
+      Run Prediction
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Models Trained</div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat">
+        <div class="stat-num">87%</div>
+        <div class="stat-label">R² Accuracy</div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat">
+        <div class="stat-num">AWS</div>
+        <div class="stat-label">Deployed On</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
