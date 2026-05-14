@@ -2,7 +2,5 @@ flask
 scikit-learn
 pandas
 numpy
-xgboost==2.0.3
- 
 
 #-e .
