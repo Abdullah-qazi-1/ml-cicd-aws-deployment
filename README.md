@@ -6,6 +6,7 @@ Predicts a student's math score based on inputs like parental education, lunch t
 
 The app was deployed at: http://student-performance-env.eba-6duwjhzz.eu-north-1.elasticbeanstalk.com/predictdata
 
+
 ## How it works
 
 Training and inference are kept completely separate. Data goes through ingestion, transformation, and model training as independent components. Seven regression models get trained and compared automatically on R² score. The best one gets saved to artifacts along with the preprocessor, and that is what the Flask app loads at runtime.
