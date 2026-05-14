@@ -1,6 +1,12 @@
 # Student Performance Predictor
 
-An end-to-end machine learning project that predicts a student's math score based on demographic and academic inputs. Built with a modular pipeline and deployed on AWS Elastic Beanstalk.
+An end-to-end machine learning project that predicts a student's math score based on demographic and academic inputs. Built with a modular pipeline and deployed on AWS Elastic Beanstalk with a full CI/CD setup.
+
+## Demo
+
+[Watch the live demo on Google Drive](https://drive.google.com/file/d/1Wq3GuLAs18fpuO_7WQHGl0tyy2AHsANj/view?usp=sharing)
+
+The app was live at: http://student-performance-env.eba-6duwjhzz.eu-north-1.elasticbeanstalk.com/predictdata
 
 ## What it does
 
@@ -18,7 +24,7 @@ CatBoost and Gradient Boosting consistently came out on top, with R² around 0.8
 
 ## Stack
 
-Python, Flask, scikit-learn, XGBoost, CatBoost, Pandas, NumPy. Deployed on AWS Elastic Beanstalk with a GitHub Actions CI/CD pipeline so any push to main goes live automatically.
+Python, Flask, scikit-learn, XGBoost, CatBoost, Pandas, NumPy. Deployed on AWS Elastic Beanstalk with a CI/CD pipeline via AWS CodePipeline — any push to main deploys automatically.
 
 ## What was actually built here
 
