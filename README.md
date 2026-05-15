@@ -6,7 +6,7 @@ Predicts a student's math score based on inputs like parental education, lunch t
 
 ## App
 
-![App Home](screenshots/app-home.png)
+![App Home](screenshots/app-home.jpeg)
 
 ## How it works
 
@@ -16,16 +16,16 @@ The seven models: Linear Regression, Decision Tree, Random Forest, Gradient Boos
 
 ## Deployment
 
-Previously hosted on AWS Elastic Beanstalk with AWS CodePipeline. Migrated to a full CI/CD pipeline using GitHub Actions, AWS ECR, and AWS EC2.
+Full CI/CD pipeline using GitHub Actions, AWS ECR, and AWS EC2.
 
 Every push to main triggers the pipeline automatically:
 - **CI** — code checkout and lint check
 - **CD (Build)** — Docker image built and pushed to AWS ECR (private registry)
 - **CD (Deploy)** — EC2 self-hosted runner pulls latest image and runs the container
 
-![CI/CD Pipeline](screenshots/cicd-pipeline.png)
+![CI/CD Pipeline](screenshots/cicd-pipeline.jpeg)
 
-![Docker Running on EC2](screenshots/docker-running.png)
+![Docker Running on EC2](screenshots/docker-running.jpeg)
 
 ## Stack
 
